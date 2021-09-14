@@ -1,0 +1,14 @@
+[
+    {
+    "nombre": "Dashboard",
+    "redirect": "/dashboard"
+},
+{
+    "nombre": "Equipos",
+    "redirect": "/dashboard/equipos"
+},
+{
+    "nombre": "Configuracion Global",
+    "redirect": "/dashboard/configuracion_global"
+}
+]

@@ -1,0 +1,51 @@
+#Guìa 
+https://www.youtube.com/watch?v=rWOwTVSMfPw
+
+
+----------------->
+#instalando ng-cli
+npm install -g @angular/cli
+
+
+---------------->
+#creando proyecto
+ng new cs-configuration-front
+
+
+---------------->
+#instalar ng material
+ng add @angular/material
+
+
+---------------->
+#generando los componentes
+ng g c components/login
+ng g c components/dashboard
+
+
+---------------->
+#generando modulo SHARED
+ng g m components/shared
+
+---------------->
+#generando modulo dashboard
+ng g m components/dashboard --routing
+
+---------------->
+#generando componentes propios para dashboard
+ng g c components/dashboard/inicio
+ng g c components/dashboard/navbar
+ng g c components/dashboard/equipos
+ng g c components/dashboard/configuracion_global
+
+---------------->
+#generando el servicio para el menu
+ng g s services/menu
+
+---------------->
+#generando el servicio-global
+ng g s services/apirest
+
+---------------->
+#ejecutar proyecto
+ng serve --o
