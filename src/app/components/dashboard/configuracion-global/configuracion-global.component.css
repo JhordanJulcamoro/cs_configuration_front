@@ -1,0 +1,38 @@
+.border-card{
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+.alingposition{
+    text-align: center;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+th.mat-header-cell {
+  text-align: center;
+}
+
+td{
+  text-align: center;
+}
+
+.text-center{
+  text-align: center;
+}
+
+button{
+  margin: 4px;
+}
+
+.icon{
+  text-align: left;
+}

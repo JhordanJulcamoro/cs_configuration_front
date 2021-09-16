@@ -10,8 +10,6 @@ import { ApirestService } from 'src/app/services/apirest.service';
   styleUrls: ['./inicio.component.css'],
 })
 export class InicioComponent implements OnInit {
-  Model: any;
-  Result: any;
   listEquipos: any = [];
   displayedColumns: string[] = [
     'n',
@@ -28,11 +26,6 @@ export class InicioComponent implements OnInit {
 
   constructor(private _Service: ApirestService) {}
 
-  // ngAfterViewInit() {
-  //   setTimeout(() => (this.dataSource.paginator = this.paginator));
-  //   // this.dataSource.sort = this.sort;
-  // }
-
   ngOnInit(): void {
     this.getEquipos();
     this.dataSource.sort = this.sort;
@@ -44,7 +37,7 @@ export class InicioComponent implements OnInit {
         this.listEquipos = data;
         this.dataSource = new MatTableDataSource<any>(this.listEquipos);
         this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+        // this.dataSource.sort = this.sort;
       },
       (err) => console.error(err)
     );

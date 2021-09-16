@@ -19,7 +19,11 @@ export class ApirestService {
     return this.http.get<any>(`${this.API_SERVICE}/all_equipos`);
   } 
 
+  getConfiguracionesGLobales():Observable<any>{
+    return this.http.get<any>(`${this.API_SERVICE}/all_configuracion_global`);
+  }
   getConfigurarEquipo(id_equipo:number):Observable<any>{
     return this.http.get<any>(`${this.API_SERVICE}/configurar_equipo/${id_equipo}`);
   } 
+
 }

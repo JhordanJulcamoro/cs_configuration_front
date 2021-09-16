@@ -1,9 +1,9 @@
 <div class="container">
   <mat-toolbar>
-    <span>Inicio</span>
+    <span>Lista de Equipos</span>
 
     <div class="example-spacer"></div>
-    <button mat-raised-button color="primary">
+    <button mat-raised-button color="primary" routerLink="/dashboard/configuracion_global">
       <mat-icon class="alingposition" matTooltip="Configuraciones Globales"
         >settings</mat-icon
       >
@@ -16,7 +16,7 @@
     <input
       matInput
       (keyup)="applyFilter($event)"
-      placeholder="Buscar por ..."
+      placeholder="Buscar por Id del Equipo, Flota Principal, Flota Secundaria o Equipo"
       #input
       autocomplete="off"
     />
@@ -82,6 +82,12 @@
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    
+      <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell aling-center" colspan="12">
+            No existen datos para mostrar
+          </td>
+        </tr>
     </table>
 
     <mat-paginator
@@ -89,8 +95,4 @@
       aria-label="Select page of users"
     ></mat-paginator>
   </div>
-
-  <h2 *ngIf="listEquipos.length == 0">
-    No existen datos registrados para mostrar!
-  </h2>
 </div>
