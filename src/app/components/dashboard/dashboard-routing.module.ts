@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from 'src/app/guards/auth.guard';
 import { ConfiguracionGlobalComponent } from './configuracion-global/configuracion-global.component';
 import { DashboardComponent } from './dashboard.component';
 import { EquiposComponent } from './equipos/equipos.component';
@@ -10,7 +11,7 @@ const routes: Routes = [
     {path:'', component: InicioComponent},
     {path:'configuracion_equipo', component: EquiposComponent},
     {path:'configuracion_global', component: ConfiguracionGlobalComponent},
-  ]}
+  ], canActivate: [AuthGuard]}
 ];
 
 @NgModule({

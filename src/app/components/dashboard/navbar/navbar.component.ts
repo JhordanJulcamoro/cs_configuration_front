@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Menu } from 'src/app/interfaces/menu';
 import { ApirestService } from 'src/app/services/apirest.service'
 
@@ -10,7 +11,7 @@ import { ApirestService } from 'src/app/services/apirest.service'
 export class NavbarComponent implements OnInit {
   menu: Menu[] = [];
 
-  constructor(private _apiService: ApirestService) {}
+  constructor(private _apiService: ApirestService, private router: Router) {}
 
   ngOnInit(): void {
     this.cargaMenu();
@@ -23,5 +24,13 @@ export class NavbarComponent implements OnInit {
       },
       (err) => console.error(err)
     );
+  }
+
+  logout(){
+    //  // routerLink="/logout"
+    localStorage.removeItem('usuario');
+    
+    this.router.navigate(['/logout']);
+    console.log(localStorage.getItem('usuario'));
   }
 }

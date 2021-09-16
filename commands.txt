@@ -47,5 +47,11 @@ ng g s services/menu
 ng g s services/apirest
 
 ---------------->
+#creando guard para proteger url
+ng g guard guards/noAuth
+ng g guard guards/auth
+
+
+---------------->
 #ejecutar proyecto
 ng serve --o

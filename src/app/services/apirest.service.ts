@@ -30,12 +30,6 @@ export class ApirestService {
   } 
 
   signIn(user:Usuario):Observable<Usuario> {
-    const params = new URLSearchParams();
-    // params.set('usuario',usuario);
-    // params.set('password',password);
-    // const body = JSON.stringify({
-    //   usuario: usuario,
-    //   password: password})
     return this.http.post<Usuario>(`${this.API_SERVICE}/login/`,user);
   }
 
