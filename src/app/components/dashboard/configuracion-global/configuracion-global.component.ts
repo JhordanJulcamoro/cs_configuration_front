@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApirestService } from 'src/app/services/apirest.service';
@@ -10,6 +12,8 @@ import { ApirestService } from 'src/app/services/apirest.service';
   styleUrls: ['./configuracion-global.component.css'],
 })
 export class ConfiguracionGlobalComponent implements OnInit {
+  // form: FormGroup;
+  collapsed= false;
   listConfiguracionesGlobales: any = [];
   displayedColumns: string[] = [
     // 'n',
@@ -19,13 +23,21 @@ export class ConfiguracionGlobalComponent implements OnInit {
     'es_global',
     'es_requerido',
     'valor',
+    'acciones'
   ];
   dataSource = new MatTableDataSource<any>(this.listConfiguracionesGlobales);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _Service: ApirestService) {}
+  constructor(private _Service: ApirestService, 
+    // private fb: FormBuilder, 
+    private _snackBar: MatSnackBar) {
+    // this.form = this.fb.group({
+    //   // id_equipo:[],
+    //   value:[]
+    // });
+  }
 
   ngOnInit(): void {
     this.getConfiguracionesGlobales();
@@ -49,4 +61,15 @@ export class ConfiguracionGlobalComponent implements OnInit {
       (err) => console.error(err)
     );
   }
+
+  guardarConfiguracionGLobal(){
+    // console.log(this.form);
+    this._snackBar.open("La configuración fue guardada exitosamente", "",{
+      duration:1500,
+      horizontalPosition:'center',
+      verticalPosition:'bottom'
+    })
+  }
+
+
 }

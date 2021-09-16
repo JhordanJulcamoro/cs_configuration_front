@@ -1,14 +1,14 @@
-.border-card{
-    margin-top: 10px;
+.border-card {
+  margin-top: 10px;
 }
 
 table {
-    width: 100%;
-    margin-top: 10px;
-  }
+  width: 100%;
+  margin-top: 10px;
+}
 
-.alingposition{
-    text-align: center;
+.alingposition {
+  text-align: center;
 }
 
 .mat-form-field {
@@ -21,18 +21,42 @@ th.mat-header-cell {
   text-align: center;
 }
 
-td{
+td {
   text-align: center;
 }
 
-.text-center{
+.text-center {
   text-align: center;
 }
 
-button{
+button {
   margin: 4px;
 }
 
-.icon{
+.icon {
   text-align: left;
 }
+
+.alingpositionright {
+  text-align: right;
+}
+
+/* .main-div{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+.mat-card-cvr{
+    top:50%;  
+  width:100%;
+  text-align:center;
+  position:fixed;
+}
+*/
+
+.example-card{
+  margin: 0 auto;
+  width: 40%;
+} 

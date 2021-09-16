@@ -5,7 +5,7 @@
 },
 {
     "nombre": "Equipos",
-    "redirect": "/dashboard/equipos"
+    "redirect": "/dashboard/configuracion_equipo"
 },
 {
     "nombre": "Configuracion Global",
