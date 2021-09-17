@@ -12,7 +12,6 @@ import { ApirestService } from 'src/app/services/apirest.service';
 export class InicioComponent implements OnInit {
   listEquipos: any = [];
   displayedColumns: string[] = [
-    'n',
     'id',
     'flotaPrincipal',
     'flotaSecundaria',

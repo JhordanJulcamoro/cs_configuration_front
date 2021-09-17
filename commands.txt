@@ -55,3 +55,13 @@ ng g guard guards/auth
 ---------------->
 #ejecutar proyecto
 ng serve --o
+
+---------------->
+#componente para crear dialog
+ng g c components/shared/confirm-dialog
+
+
+----------------------->
+https://www.youtube.com/watch?v=SbeI4BNHAHs
+https://www.youtube.com/watch?v=ZL0d3M3uoRQ
+https://www.youtube.com/watch?v=_7JBv8VDU28
