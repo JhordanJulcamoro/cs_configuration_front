@@ -1,0 +1,19 @@
+<div mat-dialog-title>
+  <mat-icon class="alingposition"
+    ><mat-icon class="alingposition">info</mat-icon></mat-icon
+  >
+  <span>{{ dialogTitle }}</span>
+</div>
+<div mat-dialog-content>
+  <p>
+    {{ dialogText }}
+  </p>
+</div>
+
+<div mat-dialog-actions>
+  <span class="example-spacer"> </span>
+  <button mat-raised-button color="primary" (click)="onClickNo()">Yes</button>
+  <button mat-raised-button color="accent" [mat-dialog-close]="true">
+    No
+  </button>
+</div>

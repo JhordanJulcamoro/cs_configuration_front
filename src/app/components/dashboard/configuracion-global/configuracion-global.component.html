@@ -1,6 +1,6 @@
 <div class="container">
   <mat-toolbar>
-    <span>GLobal Configuration</span>
+    <span>Global Configuration</span>
   </mat-toolbar>
 
   <mat-card class="border-card">
@@ -68,8 +68,8 @@
       <ng-container matColumnDef="acciones">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let element">
-          <button mat-icon-button>
-            <mat-icon class="alingposition" matTooltip="Editar" >edit</mat-icon>
+          <button mat-icon-button (click)="openDialog(element.id,element.nombre,element.valordefecto)">
+            <mat-icon class="alingposition" matTooltip="Edit value" >edit</mat-icon>
           </button>
         </td>
       </ng-container>
@@ -85,43 +85,13 @@
     <!-- <div class="main-div"> -->
 
     <mat-paginator
-      [pageSizeOptions]="[5, 10, 25, 100]"
+      [pageSize]="10"
+      [pageSizeOptions]="[10, 25, 50, 70, 100]"
       aria-label="Select page of users"
     ></mat-paginator>
-
-    <!-- <div class="mat-card-cvr"> -->
-      <mat-card class="example-card" *ngIf="!collapsed">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Edit configuration</mat-card-title>
-        </mat-card-header>
-        <p>
-          <mat-form-field appearance="legacy">
-            <mat-label>Name configuration</mat-label>
-            <input matInput placeholder="Placeholder" value="SERVER_IP"/>
-            <mat-icon matSuffix>badge</mat-icon>
-          </mat-form-field>
-        </p>
-        <p>
-          <mat-form-field appearance="fill">
-            <mat-label>Value</mat-label>
-            <input matInput placeholder="Write value" />
-            <mat-icon matSuffix>text_snippet</mat-icon>
-          </mat-form-field>
-        </p>
-  
-        <mat-card-content> </mat-card-content>
-        <mat-card-actions>
-          <button mat-raised-button color="primary">
-            <mat-icon class="alingposition">save</mat-icon>Save
-          </button>
-          <button mat-raised-button color="accent">
-            <mat-icon class="alingposition" (click)="collapsed=false">cancel</mat-icon>Cancel
-          </button>
-        </mat-card-actions>
-      </mat-card>
+    
     </div>
-  <!-- </div> -->
+
 
     <div class="alingpositionright">
       <button

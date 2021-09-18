@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 //Modulos
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Angular Material
 import { MatSliderModule } from '@angular/material/slider';
@@ -20,9 +20,19 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { EditValueComponent } from './edit-value/edit-value.component';
+import { ListConfigurationComponent } from './list-configuration/list-configuration.component';
+import { EditValueGlobalComponent } from './edit-value-global/edit-value-global.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ConfirmDialogComponent,
+    EditValueComponent,
+    ListConfigurationComponent,
+    EditValueGlobalComponent,
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -41,6 +51,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatSortModule,
     MatCardModule,
     MatGridListModule,
+    MatDialogModule,
+    FormsModule,
+    // BrowserAnimationsModule,
+    // BrowserModule,
   ],
   exports: [
     ReactiveFormsModule,
@@ -59,6 +73,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatSortModule,
     MatCardModule,
     MatGridListModule,
+    MatDialogModule,
+    FormsModule,
+    // BrowserAnimationsModule,
+    // BrowserModule,
   ],
 })
 export class SharedModule {}

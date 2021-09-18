@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApirestService } from 'src/app/services/apirest.service';
+import { EditValueGlobalComponent } from '../../shared/edit-value-global/edit-value-global.component';
+import { EditValueComponent } from '../../shared/edit-value/edit-value.component';
 
 @Component({
   selector: 'app-configuracion-global',
@@ -13,6 +15,7 @@ import { ApirestService } from 'src/app/services/apirest.service';
 })
 export class ConfiguracionGlobalComponent implements OnInit {
   // form: FormGroup;
+  valor!:string;
   collapsed= false;
   listConfiguracionesGlobales: any = [];
   displayedColumns: string[] = [
@@ -31,6 +34,7 @@ export class ConfiguracionGlobalComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private _Service: ApirestService, 
+    public dialog:MatDialog,
     // private fb: FormBuilder, 
     private _snackBar: MatSnackBar) {
     // this.form = this.fb.group({
@@ -71,5 +75,23 @@ export class ConfiguracionGlobalComponent implements OnInit {
     })
   }
 
-
+  openDialog(idDialog:number, nameDialog:string,valueDialog:string):void{
+    const dialogRef = this.dialog.open(EditValueGlobalComponent, {
+      width: '25%',
+      data: {
+        dialogTitle:"Edit Value" ,
+        dialogId:idDialog,
+        dialogName:nameDialog,
+        dialogValue:valueDialog,
+      }
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      if(!res){
+        console.log("Acción del boton acepted");
+        this.getConfiguracionesGlobales();
+      } else{
+        console.log("Boton no aplastado, debería regresar");
+      }
+    })
+  }
 }
