@@ -1,13 +1,13 @@
 <div class="body">
   <div class="login">
-    <mat-spinner *ngIf="loading" class="spinner" diameter="50" ></mat-spinner>
+    <mat-spinner *ngIf="loading" class="spinner" diameter="50"></mat-spinner>
 
     <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="login()">
       <img [src]="logo" alt="" width="50%" height="80%" />
       <h1 class="h3 mb-3 fw-normal">Welcome</h1>
       <mat-form-field class="ancho" appearance="fill">
         <mat-label>User: </mat-label>
-        <input matInput formControlName="usuario" type="text"/>
+        <input matInput formControlName="usuario" type="text" />
       </mat-form-field>
       <mat-form-field class="ancho" appearance="fill">
         <mat-label>Password: </mat-label>

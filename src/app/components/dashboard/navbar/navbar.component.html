@@ -1,13 +1,11 @@
 <mat-toolbar color="primary">
   <span>CS MOBILE</span>
   <span class="example-spacer"> </span>
-  <button mat-button *ngFor='let item of menu' [routerLink]='item.redirect'>{{item.nombre}}
+  <button mat-button *ngFor="let item of menu" [routerLink]="item.redirect">
+    {{ item.nombre }}
   </button>
   <span class="example-spacer"> </span>
-  <button (click)="logout()" 
-    mat-icon-button
-    aria-label="Logout"
-  >
+  <button (click)="logout()" mat-icon-button aria-label="Logout">
     <mat-icon>logout</mat-icon>
   </button>
 </mat-toolbar>

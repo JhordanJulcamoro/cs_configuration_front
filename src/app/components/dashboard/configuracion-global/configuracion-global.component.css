@@ -40,23 +40,7 @@ button {
 .alingpositionright {
   text-align: right;
 }
-
-/* .main-div{
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
- 
-.mat-card-cvr{
-    top:50%;  
-  width:100%;
-  text-align:center;
-  position:fixed;
-}
-*/
-
-.example-card{
+.example-card {
   margin: 0 auto;
   width: 40%;
-} 
+}

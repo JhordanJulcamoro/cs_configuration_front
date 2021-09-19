@@ -12,20 +12,21 @@ import { LoginComponent } from './components/login/login.component';
 import { SharedModule } from './components/shared/shared.module';
 import { ConfirmDialogComponent } from './components/shared/confirm-dialog/confirm-dialog.component';
 import { EditValueComponent } from './components/shared/edit-value/edit-value.component';
-import { ListConfigurationComponent } from './components/shared/list-configuration/list-configuration.component';
 import { EditValueGlobalComponent } from './components/shared/edit-value-global/edit-value-global.component';
 
 @NgModule({
-  declarations: [AppComponent, 
-    LoginComponent, 
-  ],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
   ],
-  entryComponents:[ConfirmDialogComponent,EditValueComponent,ListConfigurationComponent, EditValueGlobalComponent],
+  entryComponents: [
+    ConfirmDialogComponent,
+    EditValueComponent,
+    EditValueGlobalComponent,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

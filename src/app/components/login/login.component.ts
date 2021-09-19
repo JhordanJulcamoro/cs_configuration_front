@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     const user = { usuario: usuario, password: password };
     this._Service.signIn(user).subscribe(
       (data) => {
-        localStorage.setItem('usuario',usuario);
+        localStorage.setItem('usuario', usuario);
         this.fakeLoading();
       },
       (err) => {

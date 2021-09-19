@@ -6,7 +6,6 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApirestService } from 'src/app/services/apirest.service';
 import { EditValueGlobalComponent } from '../../shared/edit-value-global/edit-value-global.component';
-import { EditValueComponent } from '../../shared/edit-value/edit-value.component';
 
 @Component({
   selector: 'app-configuracion-global',
@@ -14,32 +13,27 @@ import { EditValueComponent } from '../../shared/edit-value/edit-value.component
   styleUrls: ['./configuracion-global.component.css'],
 })
 export class ConfiguracionGlobalComponent implements OnInit {
-  collapsed= false;
+  collapsed = false;
   listConfiguracionesGlobales: any = [];
   displayedColumns: string[] = [
-    // 'n',
     'id_equipo',
     'nombre',
     'icon',
     'es_global',
     'es_requerido',
     'valor',
-    'acciones'
+    'acciones',
   ];
   dataSource = new MatTableDataSource<any>(this.listConfiguracionesGlobales);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _Service: ApirestService, 
-    public dialog:MatDialog,
-    // private fb: FormBuilder, 
-    private _snackBar: MatSnackBar) {
-    // this.form = this.fb.group({
-    //   // id_equipo:[],
-    //   value:[]
-    // });
-  }
+  constructor(
+    private _Service: ApirestService,
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     this.getConfiguracionesGlobales();
@@ -64,32 +58,28 @@ export class ConfiguracionGlobalComponent implements OnInit {
     );
   }
 
-  guardarConfiguracionGLobal(){
-    // console.log(this.form);
-    this._snackBar.open("La configuración fue guardada exitosamente", "",{
-      duration:1500,
-      horizontalPosition:'center',
-      verticalPosition:'bottom'
-    })
+  guardarConfiguracionGLobal() {
+    this._snackBar.open('La configuración fue guardada exitosamente', '', {
+      duration: 1500,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+    });
   }
 
-  openDialog(idDialog:number, nameDialog:string,valueDialog:string):void{
+  openDialog(idDialog: number, nameDialog: string, valueDialog: string): void {
     const dialogRef = this.dialog.open(EditValueGlobalComponent, {
       width: '25%',
       data: {
-        dialogTitle:"Edit Value" ,
-        dialogId:idDialog,
-        dialogName:nameDialog,
-        dialogValue:valueDialog,
+        dialogTitle: 'Edit Value',
+        dialogId: idDialog,
+        dialogName: nameDialog,
+        dialogValue: valueDialog,
+      },
+    });
+    dialogRef.afterClosed().subscribe((res) => {
+      if (!res) {
+        this.getConfiguracionesGlobales();
       }
     });
-    dialogRef.afterClosed().subscribe(res => {
-      if(!res){
-        console.log("Acción del boton acepted");
-        this.getConfiguracionesGlobales();
-      } else{
-        console.log("Boton no aplastado, debería regresar");
-      }
-    })
   }
 }

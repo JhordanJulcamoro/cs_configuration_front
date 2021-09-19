@@ -30,15 +30,19 @@ export class EditValueGlobalComponent implements OnInit {
 
   onSaveValue(value: string): void {
     console.log('Valores: ', this.dialogId, value);
-    this._Service.putEditConfiguracionesGlobales(this.dialogId, value).subscribe(
-      (data) => {
-        this.dialogREf.close();
-      },
-      (err) => {
-        (err.status === 404)? this.error('The data entered is incorrect'): this.error("Error saving entered data");
-        this.dialogREf.close();
-      }
-    );
+    this._Service
+      .putEditConfiguracionesGlobales(this.dialogId, value)
+      .subscribe(
+        (data) => {
+          this.dialogREf.close();
+        },
+        (err) => {
+          err.status === 404
+            ? this.error('The data entered is incorrect')
+            : this.error('Error saving entered data');
+          this.dialogREf.close();
+        }
+      );
   }
 
   error(error: string) {

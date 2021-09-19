@@ -8,9 +8,8 @@ describe('EditValueGlobalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditValueGlobalComponent ]
-    })
-    .compileComponents();
+      declarations: [EditValueGlobalComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

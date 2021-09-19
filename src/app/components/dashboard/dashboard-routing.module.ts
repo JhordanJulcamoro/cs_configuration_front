@@ -7,15 +7,20 @@ import { EquiposComponent } from './equipos/equipos.component';
 import { InicioComponent } from './inicio/inicio.component';
 
 const routes: Routes = [
-  {path:'', component: DashboardComponent, children:[
-    {path:'', component: InicioComponent},
-    {path:'configuracion_equipo/:id', component: EquiposComponent},
-    {path:'configuracion_global', component: ConfiguracionGlobalComponent},
-  ], canActivate: [AuthGuard]}
+  {
+    path: '',
+    component: DashboardComponent,
+    children: [
+      { path: '', component: InicioComponent },
+      { path: 'configuracion_equipo/:id', component: EquiposComponent },
+      { path: 'configuracion_global', component: ConfiguracionGlobalComponent },
+    ],
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class DashboardRoutingModule { }
+export class DashboardRoutingModule {}

@@ -6,20 +6,21 @@ import { ApirestService } from 'src/app/services/apirest.service';
 @Component({
   selector: 'app-edit-value',
   templateUrl: './edit-value.component.html',
-  styleUrls: ['./edit-value.component.css']
+  styleUrls: ['./edit-value.component.css'],
 })
 export class EditValueComponent implements OnInit {
   dialogTitle!: string;
   dialogName!: string;
-  dialogIdConfig!:number;
+  dialogIdConfig!: number;
   dialogIdEquipo!: number;
   dialogValue!: string;
 
-  constructor( 
+  constructor(
     private _Service: ApirestService,
     private snackBar: MatSnackBar,
     private dialogREf: MatDialogRef<EditValueComponent>,
-    @Inject(MAT_DIALOG_DATA)public data:any ) { }
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
 
   ngOnInit(): void {
     this.dialogTitle = this.data.dialogTitle;
@@ -29,7 +30,7 @@ export class EditValueComponent implements OnInit {
     this.dialogValue = this.data.dialogValue;
   }
 
-  onSaveValue(value:string):void{
+  onSaveValue(value: string): void {
     console.log('Valores: ', this.dialogIdConfig, value, this.dialogIdEquipo);
     // this._Service.putEditConfiguracionEquipo(this.dialogIdConfig, value, this.dialogIdEquipo).subscribe(
     //   (data) => {
@@ -50,5 +51,4 @@ export class EditValueComponent implements OnInit {
       verticalPosition: 'bottom',
     });
   }
-
 }

@@ -35,21 +35,14 @@
       </ng-container>
 
       <ng-container matColumnDef="flotaPrincipal">
-        <th mat-header-cell *matHeaderCellDef>
-          <!-- mat-sort-header> -->
-          Main fleet
-        </th>
+        <th mat-header-cell *matHeaderCellDef>Main fleet</th>
         <td mat-cell *matCellDef="let element">
           {{ element.flota_principal }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="flotaSecundaria">
-        <th mat-header-cell *matHeaderCellDef>
-          <!-- mat-sort-header -->
-
-          Secondary fleet
-        </th>
+        <th mat-header-cell *matHeaderCellDef>Secondary fleet</th>
         <td mat-cell *matCellDef="let element">
           {{ element.flota_secundaria }}
         </td>
@@ -67,8 +60,10 @@
           Settings
         </th>
         <td mat-cell *matCellDef="let element" class="alingposition">
-          <!-- <button mat-icon-button (click)="configurarEquipo(element.id_equipo)"> -->
-          <button mat-icon-button (click)="listConfigurarEquipo(element.id_equipo)">
+          <button
+            mat-icon-button
+            (click)="listConfigurarEquipo(element.id_equipo)"
+          >
             <mat-icon class="alingposition" matTooltip="Settings by equipment"
               >settings</mat-icon
             >

@@ -23,19 +23,17 @@ export class EquiposComponent implements OnInit {
     'esglobal',
     'esrequerido',
     'valor',
-    'configuracion'
+    'configuracion',
   ];
   dataSource = new MatTableDataSource<any>(this.listConfigEquipment);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
-    public dialog: MatDialog, 
+    public dialog: MatDialog,
     private _activateRoute: ActivatedRoute,
-    private _Service: ApirestService, 
-    private _router:Router) {
-
-    }
+    private _Service: ApirestService
+  ) {}
 
   ngOnInit(): void {
     this._activateRoute.params.subscribe((params) => {
@@ -61,25 +59,22 @@ export class EquiposComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  configurarEquipo(id_config:number,name_config: string, value: string) {
+  configurarEquipo(id_config: number, name_config: string, value: string) {
     const dialogRef = this.dialog.open(EditValueComponent, {
       width: '25%',
       data: {
-        dialogTitle:"Edit Value" ,
+        dialogTitle: 'Edit Value',
         diaglogIdConfig: id_config,
-        dialogName:name_config,
-        diaglogIdEquipo:this.id_equipo,
-        dialogValue:value,
+        dialogName: name_config,
+        diaglogIdEquipo: this.id_equipo,
+        dialogValue: value,
+      },
+    });
+    dialogRef.afterClosed().subscribe((res) => {
+      if (!res) {
+        console.log('Acción del boton acepted');
+        this.getConfiguracionesEquipo();
       }
     });
-    dialogRef.afterClosed().subscribe(res => {
-      if(!res){
-        console.log("Acción del boton acepted");
-        this.getConfiguracionesEquipo();
-      } else{
-        console.log("Boton no aplastado, debería regresar");
-      }
-    })
-    }
-
+  }
 }

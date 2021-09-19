@@ -24,8 +24,7 @@ export class InicioComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _Service: ApirestService, 
-    private _router:Router) {}
+  constructor(private _Service: ApirestService, private _router: Router) {}
 
   ngOnInit(): void {
     this.getEquipos();
@@ -38,7 +37,6 @@ export class InicioComponent implements OnInit {
         this.listEquipos = data;
         this.dataSource = new MatTableDataSource<any>(this.listEquipos);
         this.dataSource.paginator = this.paginator;
-        // this.dataSource.sort = this.sort;
       },
       (err) => console.error(err)
     );
@@ -49,7 +47,7 @@ export class InicioComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  listConfigurarEquipo(id_equipo:number){
-     this._router.navigate([`/dashboard/configuracion_equipo`,id_equipo]);
+  listConfigurarEquipo(id_equipo: number) {
+    this._router.navigate([`/dashboard/configuracion_equipo`, id_equipo]);
   }
 }

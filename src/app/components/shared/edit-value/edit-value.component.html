@@ -1,22 +1,35 @@
-<div mat-dialog-title> {{dialogTitle}} </div>
+<div mat-dialog-title>{{ dialogTitle }}</div>
 <div mat-dialog-content>
-    <p>
+  <p>
     <mat-form-field appearance="legacy">
-        <mat-label>Name configuration</mat-label>
-        <input matInput placeholder="Placeholder" value="{{dialogName}}" [disabled]="true"/>
-        <mat-icon matSuffix>badge</mat-icon>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="fill">
-        <mat-label>Value</mat-label>
-        <input matInput placeholder="Write value" value="{{dialogValue}}" [(ngModel)]="dialogValue"/>
-        <mat-icon matSuffix>text_snippet</mat-icon>
-      </mat-form-field>
-    </p>
+      <mat-label>Name configuration</mat-label>
+      <input
+        matInput
+        placeholder="Placeholder"
+        value="{{ dialogName }}"
+        [disabled]="true"
+      />
+      <mat-icon matSuffix>badge</mat-icon>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Value</mat-label>
+      <input
+        matInput
+        placeholder="Write value"
+        value="{{ dialogValue }}"
+        [(ngModel)]="dialogValue"
+      />
+      <mat-icon matSuffix>text_snippet</mat-icon>
+    </mat-form-field>
+  </p>
 </div>
 <div mat-dialog-actions>
-    <button mat-raised-button color="primary" (click)="onSaveValue(dialogValue)">Send</button>
-    <button mat-raised-button color="accent" [mat-dialog-close]="true">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSaveValue(dialogValue)">
+    Send
+  </button>
+  <button mat-raised-button color="accent" [mat-dialog-close]="true">
+    Cancel
+  </button>
 </div>
-

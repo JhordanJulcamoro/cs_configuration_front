@@ -23,14 +23,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { EditValueComponent } from './edit-value/edit-value.component';
-import { ListConfigurationComponent } from './list-configuration/list-configuration.component';
 import { EditValueGlobalComponent } from './edit-value-global/edit-value-global.component';
 
 @NgModule({
   declarations: [
     ConfirmDialogComponent,
     EditValueComponent,
-    ListConfigurationComponent,
     EditValueGlobalComponent,
   ],
   imports: [
