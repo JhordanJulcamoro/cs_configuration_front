@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Menu } from 'src/app/interfaces/menu';
 import { ApirestService } from 'src/app/services/apirest.service'
+import { ConfirmDialogComponent } from '../../shared/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +13,8 @@ import { ApirestService } from 'src/app/services/apirest.service'
 export class NavbarComponent implements OnInit {
   menu: Menu[] = [];
 
-  constructor(private _apiService: ApirestService, private router: Router) {}
+  constructor(private _apiService: ApirestService, 
+    public dialog:MatDialog,private router: Router) {}
 
   ngOnInit(): void {
     this.cargaMenu();
@@ -27,10 +30,21 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(){
-    //  // routerLink="/logout"
-    localStorage.removeItem('usuario');
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '25%',
+      data: {
+        dialogTitle:"Log out" ,
+        dialogText:"Are you sure you want to log out?",
+      }
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      if(!res){
+        localStorage.removeItem('usuario');
+        this.router.navigate(['/logout']);
+      } 
+    })
+
+
     
-    this.router.navigate(['/logout']);
-    console.log(localStorage.getItem('usuario'));
   }
 }

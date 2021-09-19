@@ -29,6 +29,10 @@ export class ApirestService {
     return this.http.get<any>(`${this.API_SERVICE}/configurar_equipo/${id_equipo}`);
   } 
 
+  putEditConfiguracionEquipo(id_configuracion:number, value:string, id_equipo:number):Observable<any>{
+    return this.http.put<any>(`${this.API_SERVICE}/equipos_configuracion_equipo/${id_configuracion}`,{idequipo:id_equipo,valor:value});
+  }
+
   putEditConfiguracionesGlobales(id_configuracion:number, value:string):Observable<any>{
     return this.http.put<any>(`${this.API_SERVICE}/equipos_configuracion_global/${id_configuracion}`,{valorDefecto:value});
   }

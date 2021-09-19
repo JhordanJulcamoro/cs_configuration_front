@@ -9,7 +9,7 @@ import { InicioComponent } from './inicio/inicio.component';
 const routes: Routes = [
   {path:'', component: DashboardComponent, children:[
     {path:'', component: InicioComponent},
-    {path:'configuracion_equipo', component: EquiposComponent},
+    {path:'configuracion_equipo/:id', component: EquiposComponent},
     {path:'configuracion_global', component: ConfiguracionGlobalComponent},
   ], canActivate: [AuthGuard]}
 ];

@@ -14,8 +14,6 @@ import { EditValueComponent } from '../../shared/edit-value/edit-value.component
   styleUrls: ['./configuracion-global.component.css'],
 })
 export class ConfiguracionGlobalComponent implements OnInit {
-  // form: FormGroup;
-  valor!:string;
   collapsed= false;
   listConfiguracionesGlobales: any = [];
   displayedColumns: string[] = [

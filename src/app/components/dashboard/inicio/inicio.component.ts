@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { ApirestService } from 'src/app/services/apirest.service';
 
 @Component({
@@ -23,7 +24,8 @@ export class InicioComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _Service: ApirestService) {}
+  constructor(private _Service: ApirestService, 
+    private _router:Router) {}
 
   ngOnInit(): void {
     this.getEquipos();
@@ -47,14 +49,7 @@ export class InicioComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  configurarEquipo(index: number) {
-    console.log(index);
-
-    this._Service.getConfigurarEquipo(index).subscribe(
-      (data) => {
-        console.log(data);
-      },
-      (err) => console.error(err)
-    );
+  listConfigurarEquipo(id_equipo:number){
+     this._router.navigate([`/dashboard/configuracion_equipo`,id_equipo]);
   }
 }
