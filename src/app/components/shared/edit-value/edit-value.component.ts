@@ -32,16 +32,16 @@ export class EditValueComponent implements OnInit {
 
   onSaveValue(value: string): void {
     console.log('Valores: ', this.dialogIdConfig, value, this.dialogIdEquipo);
-    // this._Service.putEditConfiguracionEquipo(this.dialogIdConfig, value, this.dialogIdEquipo).subscribe(
-    //   (data) => {
-    //     console.log("Hola soy",data);
-    //     this.dialogREf.close();
-    //   },
-    //   (err) => {
-    //     (err.status === 404)? this.error('The data entered is incorrect'): this.error("Error saving entered data");
-    //     this.dialogREf.close();
-    //   }
-    // );
+    this._Service.putEditConfiguracionEquipo(this.dialogIdConfig, value, this.dialogIdEquipo).subscribe(
+      (data) => {
+        console.log("Hola soy",data);
+        this.dialogREf.close();
+      },
+      (err) => {
+        (err.status === 404)? this.error('The data entered is incorrect'): this.error("Error saving entered data");
+        this.dialogREf.close();
+      }
+    );
   }
 
   error(error: string) {
