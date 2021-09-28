@@ -29,7 +29,6 @@ export class EditValueGlobalComponent implements OnInit {
   }
 
   onSaveValue(value: string): void {
-    console.log('Valores: ', this.dialogId, value);
     this._Service
       .putEditConfiguracionesGlobales(this.dialogId, value)
       .subscribe(

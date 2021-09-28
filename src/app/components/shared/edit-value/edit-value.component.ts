@@ -31,10 +31,8 @@ export class EditValueComponent implements OnInit {
   }
 
   onSaveValue(value: string): void {
-    console.log('Valores: ', this.dialogIdConfig, value, this.dialogIdEquipo);
     this._Service.putEditConfiguracionEquipo(this.dialogIdConfig, value, this.dialogIdEquipo).subscribe(
       (data) => {
-        console.log("Hola soy",data);
         this.dialogREf.close();
       },
       (err) => {

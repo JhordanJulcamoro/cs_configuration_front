@@ -72,7 +72,6 @@ export class EquiposComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((res) => {
       if (!res) {
-        console.log('Acción del boton acepted');
         this.getConfiguracionesEquipo();
       }
     });
